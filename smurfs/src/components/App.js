@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 import "./App.css";
-class App extends Component {
-  render() {
+
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+
+// import { missionsReducer as reducer } from "./reducers/missionsReducer";
+
+// import Components
+
+// const store = createStore(reducer, applyMiddleware(thunk));
+
+export default App = () => {
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
@@ -10,7 +20,4 @@ class App extends Component {
         <div>Have fun!</div>
       </div>
     );
-  }
 }
-
-export default App;
