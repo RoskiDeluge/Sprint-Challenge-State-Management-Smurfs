@@ -7,7 +7,6 @@ export const initialState = {
     age: 200,
     height: "5cm",
   }],
-  isFetchingData: false,
   error: ""
 }
 
@@ -16,14 +15,12 @@ export const smurfReducer = (state = initialState, action) => {
     case FETCH_DATA: 
       return {
         ...state,
-        isFetchingData: true,
         smurfs: []
       }
       case UPDATE_SMURFS:
         return {
           ...state,
           smurfs: action.payload,
-          isFetchingData: false
         }
       case ADD_SMURF:
         return {
@@ -33,7 +30,6 @@ export const smurfReducer = (state = initialState, action) => {
       case SET_ERROR:
         return {
           ...state,
-          isFetchingData: false,
           error: action.payload
         }
 

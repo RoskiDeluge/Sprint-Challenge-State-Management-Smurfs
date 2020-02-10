@@ -15,13 +15,13 @@ const SmurfForm = props => {
       ...smurf,
       [e.target.name] : e.target.value 
     });
-    console.log("rd: SmurfForm: handleChanges: smurf object, ", smurf);
+    // console.log("rd: SmurfForm: handleChanges: smurf object, ", smurf);
   }
 
   const handleAddSmurf = e => {
     e.preventDefault();
     props.postData(smurf);
-    console.log("rd: SmurfForm: handleAddSmurf, smurf object, ", smurf);
+    // console.log("rd: SmurfForm: handleAddSmurf, smurf object, ", smurf);
   }
 
   return (
