@@ -5,7 +5,9 @@ export const initialState = {
     name: "Brainey",
     age: 200,
     height: "5cm",
-  }]
+  }],
+  isFetchingData: false,
+  error: ""
 }
 
 export const smurfReducer = (state = initialState, action) => {
