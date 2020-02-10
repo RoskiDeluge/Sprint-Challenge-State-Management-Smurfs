@@ -11,7 +11,7 @@ const SmurfForm = props => {
   });
 
   const handleChanges = e => {
-    setSmurf({ name: e.target.value, age: e.target.value, height: e.target.value });
+    setSmurf({ [e.target.name] : e.target.value });
   }
 
   const handleAddSmurf = e => {
@@ -24,18 +24,21 @@ const SmurfForm = props => {
         <form>
           <input
             type="text"
+            name="name"
             value={smurf.name}
             onChange={handleChanges}
             placeholder="Your Smurf's name"
           />
           <input
             type="text"
+            name="age"
             value={smurf.age}
             onChange={handleChanges}
             placeholder="Age"
           />
           <input 
             type="text"
+            name="height"
             value={smurf.height}
             onChange={handleChanges}
             placeholder="Height"

@@ -20,7 +20,17 @@ export const getData = () => dispatch => {
 }
 
 export const postData = () => dispatch => {
-  dispatch({ type: ADD_SMURF });
   axios
-    .post("http://localhost:3333/smurfs")
+    .post("http://localhost:3333/smurfs", {
+      name: "Name",
+      age: 2,
+      height: "5cm",
+    })
+    .then(res => {
+      console.log(res);
+      dispatch({ type: ADD_SMURF });
+    })
+    .catch(err => {
+      console.log("POST err: ", err);
+    })
 }
