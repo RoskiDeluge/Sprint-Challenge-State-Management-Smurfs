@@ -10,7 +10,7 @@ export const getData = () => dispatch => {
   axios
     .get("http://localhost:3333/smurfs")
     .then(res => {
-      console.log(res);
+      console.log("rd: getData, smurfs array: ", res.data);
       dispatch({ type: UPDATE_SMURFS, payload: res.data });
     })
     .catch(err => {
@@ -19,16 +19,17 @@ export const getData = () => dispatch => {
     })
 }
 
-export const postData = () => dispatch => {
+export const postData = (item) => dispatch => {
   axios
     .post("http://localhost:3333/smurfs", {
-      name: "Name",
-      age: 2,
-      height: "5cm",
+      name: item.name,
+      age: item.age,
+      height: item.height
     })
     .then(res => {
-      console.log(res);
-      dispatch({ type: ADD_SMURF });
+      // console.log("rd: actions index: postData .then: ", res);
+      dispatch({ type: FETCH_DATA });
+      dispatch({type: UPDATE_SMURFS, payload: res.data })
     })
     .catch(err => {
       console.log("POST err: ", err);

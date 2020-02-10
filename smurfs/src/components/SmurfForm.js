@@ -5,23 +5,28 @@ import { postData } from '../actions';
 const SmurfForm = props => {
 
   const  [ smurf, setSmurf ]  = useState({
-    name: "",
+    name: "", 
     age: "",
     height: ""
   });
 
   const handleChanges = e => {
-    setSmurf({ [e.target.name] : e.target.value });
+    setSmurf({ 
+      ...smurf,
+      [e.target.name] : e.target.value 
+    });
+    console.log("rd: SmurfForm: handleChanges: smurf object, ", smurf);
   }
 
   const handleAddSmurf = e => {
     e.preventDefault();
     props.postData(smurf);
+    console.log("rd: SmurfForm: handleAddSmurf, smurf object, ", smurf);
   }
 
   return (
       <div>
-        <form>
+        <form onSubmit={handleAddSmurf}>
           <input
             type="text"
             name="name"
@@ -43,7 +48,7 @@ const SmurfForm = props => {
             onChange={handleChanges}
             placeholder="Height"
           />
-          <button onClick={handleAddSmurf}>Add Smurf</button>
+          <button>Add Smurf</button>
         </form>
       </div>
   )
@@ -51,7 +56,7 @@ const SmurfForm = props => {
 
 const mapStateToProps = state => {
   return {
-
+    
   }
 }
 
