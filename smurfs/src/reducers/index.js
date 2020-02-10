@@ -1,4 +1,4 @@
-import { FETCH_DATA, UPDATE_SMURFS, SET_ERROR } from "../actions"
+import { FETCH_DATA, UPDATE_SMURFS, SET_ERROR, ADD_SMURF } from "../actions"
 
 export const initialState = {
   smurfs: [{
@@ -24,6 +24,11 @@ export const smurfReducer = (state = initialState, action) => {
           ...state,
           smurfs: action.payload,
           isFetchingData: false
+        }
+      case ADD_SMURF:
+        return {
+          ...state,
+          smurfs: [...state.smurfs, action.payload]
         }
       case SET_ERROR:
         return {
