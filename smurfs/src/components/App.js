@@ -5,19 +5,22 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 
-// import { missionsReducer as reducer } from "./reducers/missionsReducer";
+import { smurfReducer as reducer } from "../reducers";
 
-// import Components
+import SmurfList from './SmurfList';
+import SmurfForm from './SmurfForm';
 
-// const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(reducer, applyMiddleware(thunk));
 
-export default App = () => {
+const App = () => {
     return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <SmurfForm />
+          <SmurfList />
+        </div>
+      </Provider>
     );
 }
+
+export default App;
