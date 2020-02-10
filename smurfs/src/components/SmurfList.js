@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from "react-redux";
 
-const SmurfList = () => {
+import { getData } from '../actions';
+
+const SmurfList = props => {
+
+  useEffect(() => {
+    props.getData();
+  }, []);
+
   return (
       <div>
-        I'm a smurf list.
+        {props.error ? (
+          <div>{props.error}</div>
+        ) : (
+          props.smurfs.map(smurf => <div>{smurf.name}</div>)
+        )}
       </div>
   )
 }
 
-export default SmurfList;
+const mapStateToProps = state => {
+  return {
+    smurfs: state.smurfs,
+    error: state.error
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  { getData }
+)(SmurfList);

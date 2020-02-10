@@ -16,6 +16,7 @@ const App = () => {
     return (
       <Provider store={store}>
         <div className="App">
+          <h1>Smurf Village</h1>
           <SmurfForm />
           <SmurfList />
         </div>
