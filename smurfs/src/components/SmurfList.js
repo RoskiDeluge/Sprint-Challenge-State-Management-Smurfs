@@ -3,18 +3,18 @@ import { connect } from "react-redux";
 
 import { getData } from '../actions';
 
-const SmurfList = props => {
+const SmurfList = ({getData, smurfs, error}) => {
 
   useEffect(() => {
-    props.getData();
-  }, []);
+    getData();
+  }, [getData]);
 
   return (
       <div>
-        {props.error ? (
-          <div>{props.error}</div>
+        {error ? (
+          <div>{error}</div>
         ) : (
-          props.smurfs.map(smurf => <div>{smurf.name}</div>)
+          smurfs.map(smurf => <div key={smurf.id}>{smurf.name}</div>)
         )}
       </div>
   )
