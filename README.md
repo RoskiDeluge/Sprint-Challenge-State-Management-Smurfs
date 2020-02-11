@@ -27,9 +27,21 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 The problem that Context API solves is giving us access to application level state without having to pass it down through props.
 
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+Actions allow us to organize the functions that are called from the event handlers in our components. Reducers allow us to organize how our action functions alter the application state. The store allows us to have an application level storage place for our data. Since we can access this application level state from any component, it is known as a single source of truth.  
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application level state is intended to hold data that needs to be used by the entire application. Component level state is appropriate to hold the data that will only be used by a single component, e.g. an input fields on a form. 
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux-thunk is middleware that allows us to perform asynchronous operations inside our action creators, before they flow through the reducer stack. 
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+I prefer Redux as a state management system. I recognize that Context API and hooks don't require as much boiler plate, but I think that the extra setup with Redux pays off in terms of explicitness. I find it more intuitive to think of a "store" as a single source of truth for my data. 
+
 
 ## Project Set Up
 
